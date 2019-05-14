@@ -1,0 +1,22 @@
+close all;clear all;clc;
+%f=imread('test1.bmp');
+%f=imread('test2.png');
+%f=imread('test3.jpg');
+f=imread('test4.bmp');
+%f=imread('test5.png');
+%f=imread('test6.jpg');
+g=edge(f,'sobel');
+h=edge(f,'canny');
+I=edge(f,'prewitt');
+subplot(2,2,1)
+imshow(f)
+title('Ô­Í¼Ïñ')
+subplot(2,2,2)
+imshow(g)
+title('sobel±ßÔµ¼ì²â')
+subplot(2,2,3)
+imshow(h)
+title('canny±ßÔµ¼ì²â')
+subplot(2,2,4)
+imshow(I)
+title('prewitt±ßÔµ¼ì²â')

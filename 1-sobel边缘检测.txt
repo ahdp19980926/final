@@ -1,0 +1,14 @@
+close all;clear all;clc;
+%f=imread('test1.bmp');
+%f=imread('test2.png');
+%f=imread('test3.jpg');
+%f=imread('test4.bmp');
+%f=imread('test5.png');
+f=imread('test6.jpg');
+g=edge(f,'sobel');
+subplot(1,2,1)
+imshow(g)
+title('sobel±ßÔµ¼ì²â')
+subplot(1,2,2)
+imshow(f)
+title('Ô­Í¼Ïñ')

@@ -1,0 +1,25 @@
+close all;clear all;clc;
+%f=imread('test1.bmp');
+%f=imread('test2.png');
+%f=imread('test3.jpg');
+%f=imread('test4.bmp');
+f=imread('test5.png');
+%f=imread('test6.jpg');
+g=edge(f,'sobel');
+%[H,theta,rho] = hough(g,'Rho',0.5,'Theta',0.5);
+[H,theta,rho]=hough(g,'ThetaResolution',1);
+%[H,theta,rho]=hough(g,'RhoResolution',1);
+figure
+imshow(H,[],'XData',theta,'YData',rho,'InitialMagnification','fit')
+axis on,axis normal
+xlabel('\theta'),ylabel('\rho')
+title('hough变换')
+peaks=houghpeaks(H,10);
+lines=houghlines(g,theta,rho,peaks);
+figure
+imshow(g),hold on
+for k = 1:length(lines) 
+    xy = [lines(k).point1; lines(k).point2]; 
+    plot(xy(:,1),xy(:,2),'LineWidth',2,'Color','green');%画出线段 
+end
+title('与hough变换峰值对应的线段')
